@@ -1,0 +1,9 @@
+#!/bin/bash
+
+ID=$1 || 0
+OUT_FILE=`printf "out/%04d.json" "$ID"`
+
+curl --location 'https://signserver.3key.company/signserver/rest/v1/workers/PAdES-Baseline-B-Perf/process' \
+--header 'Content-Type: application/json' \
+--data @payload-SignDocument.json \
+--silent -o "$OUT_FILE"
